@@ -39,7 +39,7 @@ var StateView = React.createClass({
                   )
                  )}
             </p>
-        )        
+        )
     }
 });
 

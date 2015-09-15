@@ -1,3 +1,4 @@
+var log = require('loglevel');
 var BoardModel = require('./boardmodel');
 
 function PlayerModel(socket) {
@@ -12,11 +13,11 @@ function PlayerModel(socket) {
         if (self.game !== null) {
             self.game.updateName(self);
         }
-        console.log(msg);
+        log.debug(msg);
     });
 
     socket.on('move', function(msg) {
-        console.log('got move', msg);
+        log.debug('got move', msg);
         var newBoard = new BoardModel(msg);
         if (self.game !== null) {
             self.game.move(self, newBoard);
@@ -24,20 +25,20 @@ function PlayerModel(socket) {
     });
 
     socket.on('reset', function() {
-        console.log('got reset');
+        log.debug('got reset');
         if (self.game !== null) {
             self.game.clearBoard();
         }
-    });        
+    });
 }
 
 PlayerModel.prototype.setOpponent = function(oppName) {
-    console.log('setOpponent', oppName);
+    log.debug('setOpponent', oppName);
     this.socket.emit('opponent', oppName);
 };
 
 PlayerModel.prototype.setBoard = function(board, next, condition) {
-    console.log('setBoard');
+    log.debug('setBoard');
     this.socket.emit('board', {
         board: board.state,
         next: next,
@@ -46,13 +47,9 @@ PlayerModel.prototype.setBoard = function(board, next, condition) {
 };
 
 PlayerModel.prototype.setMark = function(mark) {
-    console.log('mark', mark);
+    log.debug('mark', mark);
     this.mark = mark;
     this.socket.emit('mark', mark);
 };
-
-//PlayerModel.prototype.disconnect = function() {
-//    this.socket.disconnect();
-//};
 
 module.exports = PlayerModel;

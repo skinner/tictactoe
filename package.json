@@ -5,10 +5,15 @@
   "dependencies": {
     "node-static": "~0.7.7",
     "socket.io": "~1.3.6",
-    "react": "~0.13.3"
+    "react": "~0.13.3",
+    "loglevel": "~1.4.0"
   },
   "devDependencies": {
     "browserify": "~11.1.0",
     "reactify": "~1.1.1"
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/skinner/tictactoe.git"
   }
 }

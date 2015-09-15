@@ -1,3 +1,4 @@
+var log = require('loglevel');
 var BoardModel = require('./boardmodel');
 
 var MARKS = ['X', 'O'];
@@ -9,7 +10,7 @@ function GameModel() {
 }
 
 GameModel.prototype.addPlayer = function(player) {
-    console.log('addPlayer');
+    log.debug('addPlayer');
     player.game = this;
     if (this.players.length === 0) {
         player.setMark(MARKS[0]);
@@ -26,7 +27,7 @@ GameModel.prototype.addPlayer = function(player) {
 };
 
 GameModel.prototype.updateName = function(player) {
-    console.log('updateName');
+    log.debug('updateName');
     for (var i = 0; i < this.players.length; i++) {
         if (player === this.players[i]) {
             continue;
@@ -36,7 +37,7 @@ GameModel.prototype.updateName = function(player) {
 };
 
 GameModel.prototype.clearBoard = function() {
-    console.log('clearBoard');
+    log.debug('clearBoard');
     this.board = new BoardModel();
 
     for (var i = 0; i < this.players.length; i++) {
@@ -45,7 +46,7 @@ GameModel.prototype.clearBoard = function() {
 };
 
 GameModel.prototype.move = function(player, newBoard) {
-    console.log('move');
+    log.debug('move');
     if (this.board.condition !== null) {
         // if the board is already in an end condition, ignore further moves
         return;
@@ -54,7 +55,7 @@ GameModel.prototype.move = function(player, newBoard) {
         if (this.board.validMove(newBoard, player.mark)) {
             this.nextMover = (this.nextMover + 1) % 2;
             this.board = newBoard;
-            console.log('condition', this.board.condition);
+            log.debug('condition', this.board.condition);
             for (var i = 0; i < this.players.length; i++) {
                 this.players[i].setBoard(this.board,
                                          MARKS[this.nextMover],

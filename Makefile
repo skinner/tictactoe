@@ -1,15 +1,16 @@
+install: npm
+	if [ ! -d public/build ]; then mkdir public/build; fi
+	node_modules/.bin/browserify -t reactify --standalone TicTacToe \
+		client/tictactoe.js -o public/build/tictactoe.js
+
 npm:
 	npm install
 
-install: npm
-	node_modules/.bin/browserify -t reactify --standalone TicTacToe \
-		tictactoe.js -o public/build/tictactoe.js
-
 clean:
-	rm -r public/build/*
+	rm -r public/build
 
 cleaner: clean
 	rm -r node_modules
 
 run:
-	nodejs server.js
+	nodejs server/server.js

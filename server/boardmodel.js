@@ -1,3 +1,5 @@
+var log = require('loglevel');
+
 var ROWS = 3;
 var COLS = 3;
 var STATES = {

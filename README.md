@@ -16,7 +16,9 @@ Implementation choices:
 
 > Unfortunately, Socket.IO 0.8 branch is abandoned, there are huge amount of bugs and nothing getting fixed.
 
-So I went with Node.  I'm not using any "frameworks" other than node and socket.io, really, although I am using node-static for static file serving.
+So I went with node.  I'm not using any "frameworks" other than node and socket.io, really, although I am using node-static for static file serving.
+
+Since I'm using node, I thought about trying to share code between the client and server, but since that's less likely in a python shop, I didn't worry about it.
 
 Issues:
 -------
