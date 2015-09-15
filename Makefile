@@ -1,7 +1,7 @@
-install:
+npm:
 	npm install
 
-browserify: install
+install: npm
 	node_modules/.bin/browserify -t reactify --standalone TicTacToe \
 		tictactoe.js -o public/build/tictactoe.js
 
@@ -10,3 +10,6 @@ clean:
 
 cleaner: clean
 	rm -r node_modules
+
+run:
+	nodejs server.js
