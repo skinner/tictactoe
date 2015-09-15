@@ -1,0 +1,11 @@
+table.board {
+    border-collapse: collapse;
+}
+
+table.board td {
+    border: 1px solid black;
+    width: 3ex;
+    height: 3ex;
+    text-align: center;
+    vertical-align: center;
+}
