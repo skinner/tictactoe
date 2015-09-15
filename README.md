@@ -9,6 +9,8 @@ I don't have a fully-stock ubuntu 14.04 machine handy, so this list might not be
 
     make run
 
+[Then visit the page](http://localhost:8080/)
+
 Implementation choices:
 -----------------------
 
@@ -22,6 +24,6 @@ Since I'm using node, I thought about trying to share code between the client an
 
 Issues:
 -------
-* If one player refreshes, they should both refresh.
-* No tests
 * Only one game at a time
+* (relatedly) If one player refreshes, they should both refresh.
+* No tests
